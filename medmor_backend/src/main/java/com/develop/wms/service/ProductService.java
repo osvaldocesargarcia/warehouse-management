@@ -17,5 +17,10 @@ public interface ProductService {
 	
 	public void deleteProductById(int id);
 
-	public List<Product> getAllProductsByColor();
+	public List<Product> getAllProductsByColor(String color);
+	
+	
+	
+	
+	
 }

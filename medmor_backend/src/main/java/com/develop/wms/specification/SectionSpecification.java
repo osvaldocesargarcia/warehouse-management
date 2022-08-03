@@ -11,14 +11,14 @@ import javax.persistence.criteria.Root;
 
 
 
-import com.develop.wms.entity.Product;
+import com.develop.wms.entity.Section;
 
-public class ProductSpecification implements Specification<Product> {
+public class SectionSpecification implements Specification<Section> {
 
     private SearchCriteria criteria;
 
  
-	public ProductSpecification(final SearchCriteria criteria) {
+	public SectionSpecification(final SearchCriteria criteria) {
 		super();
 		this.criteria = criteria;
 	}
@@ -31,7 +31,7 @@ public class ProductSpecification implements Specification<Product> {
     
     @Override
     public javax.persistence.criteria.Predicate toPredicate
-      (Root<Product> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
+      (Root<Section> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
  
         if (criteria.getOperation().equalsIgnoreCase(">")) {
             return builder.greaterThanOrEqualTo(

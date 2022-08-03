@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.develop.wms.entity.Product;
 import com.develop.wms.entity.Section;
 
 import com.develop.wms.service.SectionService;
@@ -40,6 +41,15 @@ public class SectionController {
 	public Section saveSection(@RequestBody Section section) {
 		return	sectionService.saveSection(section);
 	
+	}
+	
+	
+	@GetMapping("/products_by_section")
+	public List<Product> listProductsBySection(@RequestParam int section_id) {
+		
+		
+		return sectionService.getAllProductsBySection(section_id);
+		
 	}
 
 }

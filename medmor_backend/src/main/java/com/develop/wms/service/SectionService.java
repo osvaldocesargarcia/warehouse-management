@@ -2,7 +2,7 @@ package com.develop.wms.service;
 
 import java.util.List;
 
-
+import com.develop.wms.entity.Product;
 import com.develop.wms.entity.Section;
 
 public interface SectionService {
@@ -17,5 +17,7 @@ public interface SectionService {
 	public Section updateSection (Section section);
 	
 	public void deleteSectionById(int id);
+	
+	public List<Product> getAllProductsBySection(int section_id);
 
 }

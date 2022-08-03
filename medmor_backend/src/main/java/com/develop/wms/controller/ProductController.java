@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.develop.wms.entity.Product;
 
 import com.develop.wms.service.ProductService;
+import com.develop.wms.specification.SectionSpecification;
 
 @RestController
 @RequestMapping("/api/medmor")
@@ -31,11 +33,15 @@ private ProductService productService;
 	}
 	
 	
+	
+	
+	
+	
 	@GetMapping("/product_color")
-	public List<Product> listProductsByColor(/*AQUÍ VA EL PARÁMETRO DEL COLOR*/) {
+	public List<Product> listProductsByColor(@RequestParam String color) {
 		
 		
-		return productService.getAllProductsByColor(/* TODO AQUÍ VA EL PARÁMETRO DEL COLOR*/);
+		return productService.getAllProductsByColor(color);
 		
 	}
 	

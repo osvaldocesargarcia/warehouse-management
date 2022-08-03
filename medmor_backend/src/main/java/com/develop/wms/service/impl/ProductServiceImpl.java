@@ -1,15 +1,21 @@
 package com.develop.wms.service.impl;
 
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
 import com.develop.wms.entity.Product;
+
 import com.develop.wms.repository.ProductRepository;
+
 import com.develop.wms.service.ProductService;
 import com.develop.wms.specification.ProductSpecification;
 import com.develop.wms.specification.SearchCriteria;
+
 
 
 @Service
@@ -17,9 +23,11 @@ public class ProductServiceImpl implements ProductService {
 	
 	private ProductRepository productRepository;
 	
-	public ProductServiceImpl (ProductRepository productRepository) {
+	
+	public ProductServiceImpl (ProductRepository productRepository ) {
 		
 		this.productRepository = productRepository;
+	
 	}
 	
 	
@@ -31,10 +39,14 @@ public class ProductServiceImpl implements ProductService {
 		
 	}
 	
+
+	
+	
 	@Override
-	public List<Product> getAllProductsByColor(){
+	public List<Product> getAllProductsByColor(String color){
 		
-		ProductSpecification spec = new ProductSpecification(new SearchCriteria("color", ":", "red"));
+		
+		ProductSpecification spec = new ProductSpecification(new SearchCriteria("color", ":", color));
 			    
 			    List<Product> results = productRepository.findAll(spec);
 			    
