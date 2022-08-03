@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.develop.wms.entity.Product;
 import com.develop.wms.repository.ProductRepository;
 import com.develop.wms.service.ProductService;
+import com.develop.wms.specification.ProductSpecification;
+import com.develop.wms.specification.SearchCriteria;
 
 
 @Service
@@ -26,6 +28,17 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> getAllProducts(){
 		
 		return productRepository.findAll();
+		
+	}
+	
+	@Override
+	public List<Product> getAllProductsByColor(){
+		
+		ProductSpecification spec = new ProductSpecification(new SearchCriteria("color", ":", "red"));
+			    
+			    List<Product> results = productRepository.findAll(spec);
+			    
+			    return results;
 		
 	}
 	

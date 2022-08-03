@@ -23,10 +23,23 @@ public class ProductController  {
 	
 private ProductService productService;
 
+
+
 	public ProductController(ProductService productService) {
 		super();
 		this.productService = productService;
 	}
+	
+	
+	@GetMapping("/product_color")
+	public List<Product> listProductsByColor(/*AQUÍ VA EL PARÁMETRO DEL COLOR*/) {
+		
+		
+		return productService.getAllProductsByColor(/* TODO AQUÍ VA EL PARÁMETRO DEL COLOR*/);
+		
+	}
+	
+	
 	
 	@GetMapping("/product")
 	public List<Product> listProducts() {

@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Table(name="product")
 public class Product {
 
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="product_id")
@@ -53,12 +53,159 @@ public class Product {
 	private Section section_assigned;
 	
 	
-	
-	
+
 	public Product () {
 		
 		
 	}
+	
+	public Product(double length, double width, String color, double price, boolean is_fragile, int lot,
+			Product_Type product_type, Section section_assigned) {
+		super();
+		this.length = length;
+		this.width = width;
+		this.color = color;
+		this.price = price;
+		this.is_fragile = is_fragile;
+		this.lot = lot;
+		this.product_type = product_type;
+		this.section_assigned = section_assigned;
+	}
+
+	
+	
+	public int getProduct_id() {
+		return product_id;
+	}
+
+
+
+
+	public void setProduct_id(int product_id) {
+		this.product_id = product_id;
+	}
+
+
+
+
+	public double getLength() {
+		return length;
+	}
+
+
+
+
+	public void setLength(double length) {
+		this.length = length;
+	}
+
+
+
+
+	public double getWidth() {
+		return width;
+	}
+
+
+
+
+	public void setWidth(double width) {
+		this.width = width;
+	}
+
+
+
+
+	public String getColor() {
+		return color;
+	}
+
+
+
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+
+
+
+	public double getPrice() {
+		return price;
+	}
+
+
+
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+
+
+
+	public boolean isIs_fragile() {
+		return is_fragile;
+	}
+
+
+
+
+	public void setIs_fragile(boolean is_fragile) {
+		this.is_fragile = is_fragile;
+	}
+
+
+
+
+	public int getLot() {
+		return lot;
+	}
+
+
+
+
+	public void setLot(int lot) {
+		this.lot = lot;
+	}
+
+
+
+
+	public Product_Type getProduct_type() {
+		return product_type;
+	}
+
+
+
+
+	public void setProduct_type(Product_Type product_type) {
+		this.product_type = product_type;
+	}
+
+
+
+
+	public Section getSection_assigned() {
+		
+		section_assigned.setProducts_list(null);
+        
+		return section_assigned;
+	}
+
+
+
+
+	public void setSection_assigned(Section section_assigned) {
+		this.section_assigned = section_assigned;
+	}
+
+
+
+
+	
+	
+	
 	
 	
 
