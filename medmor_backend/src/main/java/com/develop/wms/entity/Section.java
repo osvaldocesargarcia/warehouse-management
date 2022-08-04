@@ -37,7 +37,7 @@ public class Section {
 	private double width;
 	
 	@JsonIgnore  
-	@OneToMany(mappedBy="section_assigned", cascade = CascadeType.REMOVE, orphanRemoval = true) 
+	@OneToMany(mappedBy="section_assigned") 
 	private Set<Product> products_list;
 	
 	@Column(name = "product_type")
