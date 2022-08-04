@@ -10,6 +10,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ProductComponent } from './components/product/product.component';
 import { SectionComponent } from './components/section/section.component';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { SectionTableComponent } from './components/section/section-table/section-table.component';
+import { ProductTableComponent } from './components/product/product-table/product-table.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
     RegisterComponent,
     LoginComponent,
     ProductComponent,
-    SectionComponent
+    SectionComponent,
+    SectionTableComponent,
+    ProductTableComponent
   ],
   imports: [
     BrowserModule,
