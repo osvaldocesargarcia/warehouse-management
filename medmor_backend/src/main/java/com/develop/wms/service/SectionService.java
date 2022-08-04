@@ -18,6 +18,6 @@ public interface SectionService {
 	
 	public void deleteSectionById(int id);
 	
-	public List<Product> getAllProductsBySection(int section_id);
+	
 
 }

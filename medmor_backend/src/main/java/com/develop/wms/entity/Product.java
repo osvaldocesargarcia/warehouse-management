@@ -188,7 +188,7 @@ public class Product {
 
 	public Section getSection_assigned() {
 		
-		section_assigned.setProducts_list(null);
+		//section_assigned.setProducts_list(null);
         
 		return section_assigned;
 	}

@@ -44,12 +44,6 @@ public class SectionController {
 	}
 	
 	
-	@GetMapping("/products_by_section")
-	public List<Product> listProductsBySection(@RequestParam int section_id) {
-		
-		
-		return sectionService.getAllProductsBySection(section_id);
-		
-	}
+
 
 }

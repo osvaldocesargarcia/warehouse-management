@@ -14,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="section")
 public class Section {
@@ -32,6 +34,7 @@ public class Section {
 	@Column(name="width")
 	private double width;
 	
+	@JsonIgnore  
 	@OneToMany(mappedBy="section_assigned") 
 	private Set<Product> products_list;
 	

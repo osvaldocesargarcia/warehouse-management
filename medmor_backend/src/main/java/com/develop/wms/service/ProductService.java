@@ -19,6 +19,7 @@ public interface ProductService {
 
 	public List<Product> getAllProductsByColor(String color);
 	
+	public List<Product> getAllProductsBySection(int section_id);
 	
 	
 	

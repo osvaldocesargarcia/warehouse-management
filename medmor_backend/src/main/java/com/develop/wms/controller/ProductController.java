@@ -64,4 +64,13 @@ private ProductService productService;
 	}
 	
 	
+	@GetMapping("/products_by_section")
+	public List<Product> listProductsBySection(@RequestParam int section_id) {
+		
+		
+		return productService.getAllProductsBySection(section_id);
+		
+	}
+	
+	
 }
