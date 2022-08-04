@@ -12,6 +12,8 @@ import { SectionComponent } from './components/section/section.component';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { SectionTableComponent } from './components/section/section-table/section-table.component';
 import { ProductTableComponent } from './components/product/product-table/product-table.component';
+import {HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,10 @@ import { ProductTableComponent } from './components/product/product-table/produc
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

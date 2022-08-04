@@ -30,7 +30,7 @@ public class SectionController {
 		super();
 		this.sectionService = sectionService;
 	}
-	
+	@CrossOrigin
 	@GetMapping("/section")
 	public List<Section> listSections() {
 		
