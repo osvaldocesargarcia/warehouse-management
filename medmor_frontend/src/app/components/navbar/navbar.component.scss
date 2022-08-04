@@ -1,0 +1,32 @@
+.nav-link{
+    font-weight: bold;
+    font-size: 23px;
+    margin-top: 10px;
+}
+
+.navbar-brand{
+    font-weight: bold;
+    font-size: 40px;
+    color:rgb(254, 254, 254);
+    font-family:   cinzel;
+}
+
+nav{
+    background-color: rgba(65, 135, 221, 0.52);
+}
+
+ .navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
+    //background-color: rgba(72, 124, 227, 0.53);
+    color: rgb(246, 246, 246);
+}
+
+.navbar-collapse  > a:hover, .navbar-collapse   > a:focus {
+    //background-color: rgba(72, 124, 227, 0.53);
+    color: rgb(246, 246, 246);
+}
+
+span{
+    color: rgba(255, 0, 0, 0.69);
+}
+
+

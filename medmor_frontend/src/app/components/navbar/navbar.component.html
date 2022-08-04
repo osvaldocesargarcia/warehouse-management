@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-xxl  " aria-label="Seventh navbar example">
+    <div class="container-fluid">
+      <a class="navbar-brand" >Medmor <span>SA</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleXxl" aria-controls="navbarsExampleXxl" aria-expanded="false" aria-label="Toggle navigation">
+            <img src="../../../../assets/img/down-arrow-white.svg" alt="down-arrow" class="arrow ms-1">
+        
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleXxl">
+        <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink] ="['/home']" aria-current="page" >Home</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link " [routerLink] ="['/section']">Warehouse Sections</a>
+          </li>
+
+          <li class="nav-item">
+                <a class="nav-link" [routerLink] ="['/product']">  Products</a>
+              </li>
+
+          <li class="nav-item">
+                <a class="nav-link " [routerLink] ="['/']">System</a>
+              </li>
+     
+        </ul>
+      
+        <a class="nav-link" [routerLink] ="['/register']" aria-current="page" >Register</a>
+        <a class="nav-link" [routerLink] ="['/login']" aria-current="page" >Login</a>
+        
+      </div>
+    </div>
+  </nav>
