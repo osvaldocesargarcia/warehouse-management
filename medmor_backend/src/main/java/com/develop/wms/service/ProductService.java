@@ -20,6 +20,14 @@ public interface ProductService {
 	public List<Product> getAllProductsByColor(String color);
 	
 	public List<Product> getAllProductsBySection(int section_id);
+
+	public List<Product> getAllProductsByLot(int lot);
+
+	public List<Product> getAllProductsByFragility(int is_fragile);
+
+	public List<Product> getAllProductsByContainer(String container_type);
+
+	public List<Product> getAllProductsByPriceInterval(double min, double max);
 	
 	
 	

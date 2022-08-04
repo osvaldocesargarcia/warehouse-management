@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import com.develop.wms.entity.Product;
 import com.develop.wms.entity.Section;
+import com.develop.wms.enums.Container_Type;
 import com.develop.wms.repository.ProductRepository;
 import com.develop.wms.repository.SectionRepository;
 import com.develop.wms.service.ProductService;
@@ -63,6 +64,80 @@ public class ProductServiceImpl implements ProductService {
 			    return results;
 		
 	}
+	
+	
+	
+	@Override
+	public List<Product> getAllProductsByLot(int lot) {
+		
+		ProductSpecification spec = new ProductSpecification(new SearchCriteria("lot", ":", lot));
+	    
+	    List<Product> results = productRepository.findAll(spec);
+		
+		return results;
+	}
+	
+	@Override
+	public List<Product> getAllProductsByFragility(int is_fragile) {
+		
+		boolean value = false;
+		if(is_fragile == 1) {
+			value=true;
+		}
+		
+		ProductSpecification spec = new ProductSpecification(new SearchCriteria("is_fragile", ":", value));
+	    
+	    List<Product> results = productRepository.findAll(spec);
+		
+		return results;
+	}
+	
+	
+	@Override
+	public List<Product> getAllProductsByPriceInterval(double min, double max) {
+		
+			
+		
+		ProductSpecification spec1 = new ProductSpecification(new SearchCriteria("price", ">", min));
+		ProductSpecification spec2 = new ProductSpecification(new SearchCriteria("price", "<", max));
+	    
+	    List<Product> results = productRepository.findAll(Specification.where(spec1).and(spec2));
+		
+		return results;
+		
+	}
+	
+	public List<Product> getAllProductsByContainer(String container_type) {
+		
+		Container_Type container_value = null;
+		
+		System.out.println("a"+container_type);
+		
+		switch(container_type) {
+		case "PLASTIC": container_value = Container_Type.PLASTIC;
+		break;
+		
+		case "CARTON": 	container_value = Container_Type.CARTON;
+		break;
+		
+		case "GLASS": 	container_value = Container_Type.GLASS;
+		break;
+		
+		case "NYLON": 	container_value = Container_Type.NYLON;
+		break;
+		
+		
+		
+		}
+		
+		ProductSpecification spec = new ProductSpecification(new SearchCriteria("container_type", ":", container_value));
+	    
+	    List<Product> results = productRepository.findAll(spec);
+		
+		return results;
+	}
+	
+	
 	
 	@Override
 	public Product saveProduct(Product product) {
@@ -156,6 +231,10 @@ public class ProductServiceImpl implements ProductService {
 		
 		
 	}
+
+
+
+
 
 	
 

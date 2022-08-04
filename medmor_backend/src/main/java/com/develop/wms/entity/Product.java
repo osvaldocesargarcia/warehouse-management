@@ -13,6 +13,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.develop.wms.enums.Container_Type;
+import com.develop.wms.enums.Product_Type;
+
 @Entity
 @Table(name="product")
 public class Product {
@@ -47,6 +50,9 @@ public class Product {
 	@Enumerated(EnumType.STRING)
 	private Product_Type product_type;
 	
+	@Column(name = "container_type")
+	@Enumerated(EnumType.STRING)
+	private Container_Type container_type;
 	
 	@ManyToOne
     @JoinColumn(name="section_id", nullable=false)
@@ -60,7 +66,7 @@ public class Product {
 	}
 	
 	public Product(double length, double width, String color, double price, boolean is_fragile, int lot,
-			Product_Type product_type, Section section_assigned) {
+			Product_Type product_type, Container_Type container_type, Section section_assigned) {
 		super();
 		this.length = length;
 		this.width = width;
@@ -70,6 +76,7 @@ public class Product {
 		this.lot = lot;
 		this.product_type = product_type;
 		this.section_assigned = section_assigned;
+		this.container_type = container_type;
 	}
 
 	
@@ -200,7 +207,13 @@ public class Product {
 		this.section_assigned = section_assigned;
 	}
 
+	public Container_Type getContainer_type() {
+		return container_type;
+	}
 
+	public void setContainer_type(Container_Type container_type) {
+		this.container_type = container_type;
+	}
 
 
 	

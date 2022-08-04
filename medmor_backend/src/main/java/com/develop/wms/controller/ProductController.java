@@ -32,10 +32,7 @@ private ProductService productService;
 		this.productService = productService;
 	}
 	
-	
-	
-	
-	
+
 	
 	@GetMapping("/product_color")
 	public List<Product> listProductsByColor(@RequestParam String color) {
@@ -45,7 +42,39 @@ private ProductService productService;
 		
 	}
 	
+	@GetMapping("/product_lot")
+	public List<Product> listProductsByLot(@RequestParam int lot) {
+		
+		
+		return productService.getAllProductsByLot(lot);
+		
+	}
 	
+	@GetMapping("/product_fragile")
+	public List<Product> listProductsByFragility(@RequestParam int is_fragile) {
+		
+		
+		return productService.getAllProductsByFragility(is_fragile);
+		
+	}
+	
+	
+	@GetMapping("/product_container")
+	public List<Product> listProductsByContainer(@RequestParam String container_type) {
+		
+		
+		return productService.getAllProductsByContainer(container_type);
+		
+	}
+	
+	
+	@GetMapping("/product_price_interval")
+	public List<Product> listProductsByPriceInterval(@RequestParam double min, double max ) {
+		
+		
+		return productService.getAllProductsByPriceInterval(min,max);
+		
+	}
 	
 	@GetMapping("/product")
 	public List<Product> listProducts() {

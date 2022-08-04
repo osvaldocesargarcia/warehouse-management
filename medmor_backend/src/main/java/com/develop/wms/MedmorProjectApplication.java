@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 import com.develop.wms.entity.Product;
-import com.develop.wms.entity.Product_Type;
 import com.develop.wms.entity.Section;
+import com.develop.wms.enums.Product_Type;
 import com.develop.wms.repository.ProductRepository;
 import com.develop.wms.repository.SectionRepository;
 import com.develop.wms.service.ProductService;

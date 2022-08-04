@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.develop.wms.enums.Product_Type;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
