@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -35,7 +36,7 @@ public class Section {
 	private double width;
 	
 	@JsonIgnore  
-	@OneToMany(mappedBy="section_assigned") 
+	@OneToMany(mappedBy="section_assigned", cascade = CascadeType.REMOVE, orphanRemoval = true) 
 	private Set<Product> products_list;
 	
 	@Column(name = "product_type")
