@@ -16,10 +16,12 @@
                   <tbody>
                     <tr *ngFor="let section of section_list">
                       <td class="textonly">{{section.section_id}}</td>
+
+                      <td class="textonly">{{section.product_type | product_type}}</td>
                      
                       <td class="textonly">{{section.length*section.width | number : '1.2-2'}}m² ({{section.length}}x{{section.width}})</td>
                       
-                      <td class="textonly">{{section.width}}</td>
+                      
                       <td>
                         <button class="column4 btn btn-outline-dark"  >Edit</button>
                         <button class="column4 btn btn-outline-danger" >Delete</button>

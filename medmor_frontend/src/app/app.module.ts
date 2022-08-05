@@ -14,6 +14,9 @@ import { SectionTableComponent } from './components/section/section-table/sectio
 import { ProductTableComponent } from './components/product/product-table/product-table.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateProductComponent } from './components/product/create-product/create-product.component';
+import {Product_Type} from './pipes/product_type.pipe';
+import {Container_Type} from './pipes/container_type.pipe.1';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProductComponent,
     SectionComponent,
     SectionTableComponent,
-    ProductTableComponent
+    ProductTableComponent,
+    CreateProductComponent,
+    Product_Type,
+    Container_Type
   ],
   imports: [
     BrowserModule,

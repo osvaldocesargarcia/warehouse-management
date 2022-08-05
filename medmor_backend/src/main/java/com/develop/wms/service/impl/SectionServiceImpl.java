@@ -9,8 +9,7 @@ import com.develop.wms.entity.Product;
 import com.develop.wms.entity.Section;
 import com.develop.wms.repository.SectionRepository;
 import com.develop.wms.service.SectionService;
-import com.develop.wms.specification.SearchCriteria;
-import com.develop.wms.specification.SectionSpecification;
+
 
 @Service
 public class SectionServiceImpl implements SectionService {
@@ -41,6 +40,9 @@ public class SectionServiceImpl implements SectionService {
 	
 	@Override
 	public Section getSectionById(int id) {
+		System.out.println("id = "+id);
+		
+		
 		return sectionRepository.findById(id).get();
 		
 	}

@@ -87,8 +87,8 @@ private ProductService productService;
 
 	@CrossOrigin
 	@PostMapping("/product")
-	public Product saveProduct(@RequestBody Product product) {
-		return	productService.saveProduct(product);
+	public Product saveProduct(@RequestBody Product product, @RequestParam int section_id) {
+		return	productService.saveProduct(product,section_id);
 	
 	}
 	

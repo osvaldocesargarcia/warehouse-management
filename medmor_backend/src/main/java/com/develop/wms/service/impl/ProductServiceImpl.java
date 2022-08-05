@@ -140,9 +140,9 @@ public class ProductServiceImpl implements ProductService {
 	
 	
 	@Override
-	public Product saveProduct(Product product) {
+	public Product saveProduct(Product product, int section_id) {
 		
-		SectionSpecification spec = new SectionSpecification(new SearchCriteria("section_id", ":", 8));
+		SectionSpecification spec = new SectionSpecification(new SearchCriteria("section_id", ":", section_id));
 	    List<Section> results = sectionRepository.findAll(spec);
 		
 	    product.setSection_assigned(results.get(0));

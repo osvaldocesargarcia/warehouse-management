@@ -18,6 +18,10 @@ export class SectionService {
    getAll(){
      return this.http.get(this.baseURL);
    }
+
+   getById(id:number){
+     return this.http.get( 'http://localhost:8080/api/medmor/getsection?id='+id);
+   }
    
    create(section:Section){
    
