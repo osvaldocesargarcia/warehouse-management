@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SectionService} from '../../../services/section.service';
 import {ProductService} from '../../../services/product.service';
 import {Section} from '../../../models/section';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { Validators,FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-create-product',
@@ -29,6 +29,8 @@ export class CreateProductComponent implements OnInit {
   section_list:Section[];
   section_temp:Section;
   section_message:string="";
+  submitted = false;
+  
 
 
   ngOnInit(): void {
@@ -39,8 +41,15 @@ export class CreateProductComponent implements OnInit {
   })
   }
 
+  get createFormControl() {
+    return this.formvalue.controls;
+  }
+ 
+
   save(){
-    
+      this.submitted = true;
+      
+      
       var values = this.formvalue.value;
       
 
@@ -67,10 +76,14 @@ export class CreateProductComponent implements OnInit {
         }   
         );
       }
+
     
       //console.log("values",values);
       /**/
 
 
     }
+
+   
+  
 }

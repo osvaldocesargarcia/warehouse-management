@@ -16,14 +16,22 @@ nav{
     background-color: rgba(55, 141, 249, 0.83);
 }
 
+.navbar-nav > li > a{
+    color:rgb(246, 246, 246);
+}
+
  .navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
     //background-color: rgba(72, 124, 227, 0.53);
-    color: rgb(246, 246, 246);
+    color: rgb(24, 78, 191);
 }
 
 .navbar-collapse  > a:hover, .navbar-collapse   > a:focus {
     //background-color: rgba(72, 124, 227, 0.53);
-    color: rgb(246, 246, 246);
+    color: rgb(24, 78, 191);
+}
+
+.navbar-collapse  > a{
+    color:white;
 }
 
 span{

@@ -4,6 +4,13 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faAppStore } from '@fortawesome/free-brands-svg-icons';
+import {ProductService} from '../../services/product.service';
+
+import {SectionService} from '../../services/section.service';
+
+
+
+
 
 
 @Component({
@@ -19,9 +26,27 @@ export class HomeComponent implements OnInit {
   youtube = faYoutube;
   appStore = faAppStore;
 
-  constructor() { }
+  countProducts:number;
+  countSections:number;
+
+  constructor(private productService:ProductService , private sectionService:SectionService ) { }
 
   ngOnInit(): void {
+    this.productService.getAll().
+    subscribe( (promise:any)=>{
+      this.countProducts = promise.length;
+      
+  })
+
+  this.sectionService.getAll().
+  subscribe( (promise:any)=>{
+    this.countSections = promise.length;
+    
+})
+
   }
+
+
+
 
 }

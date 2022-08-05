@@ -40,8 +40,7 @@ public class SectionServiceImpl implements SectionService {
 	
 	@Override
 	public Section getSectionById(int id) {
-		System.out.println("id = "+id);
-		
+
 		
 		return sectionRepository.findById(id).get();
 		

@@ -41,7 +41,7 @@ public class SectionController {
 	@CrossOrigin
 	@GetMapping("/getsection")
 	public Section listSections(@RequestParam int id) {
-		System.out.println("id = "+id);
+		
 		
 		return sectionService.getSectionById(id);
 		

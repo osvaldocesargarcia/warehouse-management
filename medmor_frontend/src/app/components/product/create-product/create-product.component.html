@@ -8,7 +8,7 @@
             <form [formGroup]="formvalue" (ngSubmit)="save()" role="form" id="contact-form" method="post" autocomplete="off">
                 <div class="card-body">
                     <label>Type of Product</label>
-                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" formControlName="product_type" >
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" formControlName="product_type">
                                       
                                       <option selected value="1">Electrical Materials</option>
                                       <option value="2">Equipment</option>
@@ -27,36 +27,45 @@
                                   <option  *ngFor="let section of section_list" >{{section.section_id}}  </option>
                                   
                                  </select>
-                                 <p>{{section_message}}</p>
+                                <span class="text-danger">
+                                    <p>{{section_message}}</p>
+                                 </span>
+
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-4">
                                 <label>Lot</label>
                                 <div class="input-group mb-4">
-                                    <input class="form-control" placeholder="" aria-label="First Name..." type="text" formControlName="lot">
+                                    <input class="form-control" placeholder="" aria-label="First Name..." type="text" formControlName="lot" pattern="[0-9]+">
                                 </div>
+                                <span class="text-danger" *ngIf="( submitted && !createFormControl.lot.valid) ">
+                                    Only numbers allowed
+                                </span>
                             </div>
                         </div>
-
-
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-4">
                                 <label>Length</label>
                                 <div class="input-group mb-4">
-                                    <input class="form-control" placeholder="" aria-label="First Name..." type="text" formControlName="length">
+                                    <input class="form-control" placeholder="" aria-label="First Name..." type="text" formControlName="length" pattern="[0-9]+">
                                 </div>
+                                <span class="text-danger" *ngIf="( submitted && !createFormControl.length.valid) ">
+                                    Only numbers allowed
+                                </span>
                             </div>
-
                         </div>
                         <div class="col-md-6">
                             <div class="mb-4">
                                 <label>Width</label>
                                 <div class="input-group mb-4">
-                                    <input class="form-control" placeholder="" aria-label="First Name..." type="text" formControlName="width">
+                                    <input class="form-control" placeholder="" aria-label="First Name..." type="text" formControlName="width" pattern="[0-9]+">
                                 </div>
+                                <span class="text-danger" *ngIf="( submitted && !createFormControl.width.valid) ">
+                                    Only numbers allowed
+                                </span>
                             </div>
 
                         </div>
@@ -67,8 +76,11 @@
                             <div class="mb-4">
                                 <label>Price</label>
                                 <div class="input-group mb-4">
-                                    <input class="form-control" placeholder="" aria-label="First Name..." type="text" formControlName="price">
+                                    <input class="form-control" placeholder="" aria-label="First Name..." type="text" formControlName="price" pattern="[0-9]+">
                                 </div>
+                                <span class="text-danger" *ngIf="( submitted && !createFormControl.price.valid) ">
+                                    Only numbers allowed
+                                </span>
                             </div>
 
                         </div>
@@ -76,8 +88,11 @@
                             <div class="mb-4">
                                 <label>Color</label>
                                 <div class="input-group mb-4">
-                                    <input class="form-control" placeholder="" aria-label="First Name..." type="text" formControlName="color">
+                                    <input class="form-control" placeholder="" aria-label="First Name..." type="text" formControlName="color" pattern="[a-zA-Z]+">
                                 </div>
+                                <span class="text-danger" *ngIf="( submitted && !createFormControl.color.valid) ">
+                                    Only letters allowed
+                                </span>
                             </div>
 
                         </div>
@@ -95,7 +110,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-check form-switch mb-4">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" formControlName="is_fragile" >
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" formControlName="is_fragile">
                                 <h5>Fragile Product</h5>
 
                             </div>
@@ -107,9 +122,6 @@
                 </div>
             </form>
         </div>
-
-
-
     </div>
 </section>
 
