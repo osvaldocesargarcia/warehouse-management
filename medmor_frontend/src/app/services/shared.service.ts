@@ -6,12 +6,17 @@ import { Subject } from "rxjs";
   providedIn: 'root'
 })
 export class SharedService {
-    // Observable string sources
+    
     private emitChangeSource = new Subject<any>();
-    // Observable string streams
+   
     changeEmitted$ = this.emitChangeSource.asObservable();
-    // Service message commands
+    productChangeEmitted$ = this.emitChangeSource.asObservable();
+    
     emitChange(change: any) {
+        this.emitChangeSource.next(change);
+    }
+
+    productEmitChange(change: any) {
         this.emitChangeSource.next(change);
     }
 }

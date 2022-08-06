@@ -12,7 +12,7 @@ export class SectionComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log("is there any user logged? R/"+this.userService.isUserLoggedIn());
+  
   }
 
 }

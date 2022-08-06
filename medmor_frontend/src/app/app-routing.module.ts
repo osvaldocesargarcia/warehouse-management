@@ -19,6 +19,7 @@ const routes: Routes = [
   {path:'register', component:RegisterComponent, canActivate:[NotLoggedRouteGuardService]},
   {path:'section', component:SectionComponent, canActivate:[RouteGuardService]},
   {path:'create_product', component:CreateProductComponent, canActivate:[RouteGuardService]},
+  {path:'update_product/:id/:type/:section/:lot/:length/:width/:price/:color/:container', component:CreateProductComponent, canActivate:[RouteGuardService]},
 ];
 
 @NgModule({

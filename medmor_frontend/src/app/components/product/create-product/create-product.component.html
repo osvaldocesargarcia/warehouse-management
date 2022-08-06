@@ -4,7 +4,7 @@
 
 
         <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column">
-            <h3 class="text-center">Create Product</h3>
+            <h3 class="text-center">{{header_message}}</h3>
             <form [formGroup]="formvalue" (ngSubmit)="save()" role="form" id="contact-form" method="post" autocomplete="off">
                 <div class="card-body">
                     <label>Type of Product</label>
@@ -37,7 +37,7 @@
                             <div class="mb-4">
                                 <label>Lot</label>
                                 <div class="input-group mb-4">
-                                    <input class="form-control" placeholder="" aria-label="First Name..." type="text" formControlName="lot" pattern="[0-9]+">
+                                    <input class="form-control" aria-label="First Name..." type="text" [(ngModel)]="update_lot" formControlName="lot" pattern="[0-9]+">
                                 </div>
                                 <span class="text-danger" *ngIf="( submitted && !createFormControl.lot.valid) ">
                                     Only numbers allowed
@@ -50,7 +50,7 @@
                             <div class="mb-4">
                                 <label>Length</label>
                                 <div class="input-group mb-4">
-                                    <input class="form-control" placeholder="" aria-label="First Name..." type="text" formControlName="length" pattern="[0-9]+">
+                                    <input class="form-control"  aria-label="First Name..." type="text" [(ngModel)]="update_length" formControlName="length" pattern="[0-9]+">
                                 </div>
                                 <span class="text-danger" *ngIf="( submitted && !createFormControl.length.valid) ">
                                     Only numbers allowed
@@ -61,7 +61,7 @@
                             <div class="mb-4">
                                 <label>Width</label>
                                 <div class="input-group mb-4">
-                                    <input class="form-control" placeholder="" aria-label="First Name..." type="text" formControlName="width" pattern="[0-9]+">
+                                    <input class="form-control"  aria-label="First Name..." type="text" [(ngModel)]="update_width" formControlName="width" pattern="[0-9]+">
                                 </div>
                                 <span class="text-danger" *ngIf="( submitted && !createFormControl.width.valid) ">
                                     Only numbers allowed
@@ -76,7 +76,7 @@
                             <div class="mb-4">
                                 <label>Price</label>
                                 <div class="input-group mb-4">
-                                    <input class="form-control" placeholder="" aria-label="First Name..." type="text" formControlName="price" pattern="[0-9]+">
+                                    <input class="form-control"  aria-label="First Name..." type="text" formControlName="price" [(ngModel)]="update_price" pattern="[0-9]+">
                                 </div>
                                 <span class="text-danger" *ngIf="( submitted && !createFormControl.price.valid) ">
                                     Only numbers allowed
@@ -88,7 +88,7 @@
                             <div class="mb-4">
                                 <label>Color</label>
                                 <div class="input-group mb-4">
-                                    <input class="form-control" placeholder="" aria-label="First Name..." type="text" formControlName="color" pattern="[a-zA-Z]+">
+                                    <input class="form-control"  aria-label="First Name..." type="text" formControlName="color" [(ngModel)]="update_color" pattern="[a-zA-Z]+">
                                 </div>
                                 <span class="text-danger" *ngIf="( submitted && !createFormControl.color.valid) ">
                                     Only letters allowed
@@ -116,7 +116,7 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <button type="submit" class="btn bg-gradient-dark w-100">Create Product</button>
+                            <button type="submit" class="btn bg-gradient-dark w-100">Submit</button>
                         </div>
                     </div>
                 </div>

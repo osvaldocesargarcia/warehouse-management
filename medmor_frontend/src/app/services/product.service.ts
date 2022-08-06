@@ -24,6 +24,14 @@ export class ProductService {
   
   }
 
+  update(id:number, product:Product, section_id:number){
+    return this.http.put('http://localhost:8080/api/medmor/product/'+id+'?'+'section_id='+section_id , product);
+  }
+
+
+
+
+
   getBySection(id:number){
     return this.http.get( 'http://localhost:8080/api/medmor/products_by_section?section_id='+id);
   }

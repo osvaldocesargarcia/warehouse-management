@@ -5,6 +5,8 @@ import { Validators,FormGroup, FormBuilder } from '@angular/forms';
 import {SectionService} from '../../../services/section.service';
 import {Section} from '../../../models/section';
 
+import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-product-table',
   templateUrl: './product-table.component.html',
@@ -30,7 +32,8 @@ export class ProductTableComponent implements OnInit {
   options = ['Section','Lot','Fragility','Color','Price Range','Container Material'];
   selected_value:string='Section';
 
-  constructor(private fb:FormBuilder, private sectionService:SectionService,private productService:ProductService) { }
+  constructor(private fb:FormBuilder,private router:Router,
+     private sectionService:SectionService,private productService:ProductService) { }
   
   
   get createFormControl() {
@@ -90,7 +93,7 @@ export class ProductTableComponent implements OnInit {
         
       }
       else if (this.selected_value == 'Container Material'){
-        console.log(values);
+      console.log(values);
       this.filterContainer(values.container_type);
         
       }
@@ -141,5 +144,14 @@ export class ProductTableComponent implements OnInit {
     });
   }
 
+  edit(temp_product:Product){
+    
+    console.log(temp_product);
+    this.router.navigate(['update_product',""+temp_product.product_id,""+temp_product.product_type,""+temp_product.section_assigned.section_id,""+temp_product.lot,
+    ""+temp_product.length,""+temp_product.width,""+temp_product.price,""+temp_product.color,""+temp_product.container_type
+  ]);
+    //{path:'update_product/:id/:type/:section/:lot/:length/:width/:price/:color/:container', component:CreateProductComponent, canActivate:[RouteGuardService]},
+    
+  }
   
 }

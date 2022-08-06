@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,9 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.develop.wms.entity.Product;
-
+import com.develop.wms.entity.Section;
 import com.develop.wms.service.ProductService;
 import com.develop.wms.specification.SectionSpecification;
 
@@ -90,6 +92,24 @@ private ProductService productService;
 	public Product saveProduct(@RequestBody Product product, @RequestParam int section_id) {
 		return	productService.saveProduct(product,section_id);
 	
+	}
+	
+	@CrossOrigin
+	@PutMapping("/product/{id}")
+	public Product updateProduct(@PathVariable int id,@RequestBody Product product_data, @RequestParam int section_id){
+		
+		Product temp_product = productService.getProductById(id);
+		temp_product.setLength(product_data.getLength());
+		temp_product.setProduct_type(product_data.getProduct_type());
+		temp_product.setWidth(product_data.getWidth());
+		temp_product.setColor(product_data.getColor());
+		temp_product.setIs_fragile(product_data.isIs_fragile());
+		temp_product.setLot(product_data.getLot());
+		temp_product.setPrice(product_data.getPrice());
+		temp_product.setContainer_type(product_data.getContainer_type());
+	
+		return productService.saveProduct(temp_product,section_id);
+		
 	}
 	
 	
