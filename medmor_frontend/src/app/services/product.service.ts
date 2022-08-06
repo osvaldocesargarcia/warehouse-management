@@ -28,6 +28,10 @@ export class ProductService {
     return this.http.put('http://localhost:8080/api/medmor/product/'+id+'?'+'section_id='+section_id , product);
   }
 
+  delete(id:number){
+    return this.http.delete('http://localhost:8080/api/medmor/product/'+id);
+  
+  }
 
 
 

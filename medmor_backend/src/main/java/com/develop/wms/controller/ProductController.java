@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -112,6 +113,13 @@ private ProductService productService;
 		
 	}
 	
+	@CrossOrigin
+	@DeleteMapping("/product/{id}")
+	public void deleteProduct(@PathVariable int id){
+
+		productService.deleteProductById(id);
+		
+	}
 	
 	@GetMapping("/products_by_section")
 	public List<Product> listProductsBySection(@RequestParam int section_id) {

@@ -150,8 +150,14 @@ export class ProductTableComponent implements OnInit {
     this.router.navigate(['update_product',""+temp_product.product_id,""+temp_product.product_type,""+temp_product.section_assigned.section_id,""+temp_product.lot,
     ""+temp_product.length,""+temp_product.width,""+temp_product.price,""+temp_product.color,""+temp_product.container_type
   ]);
-    //{path:'update_product/:id/:type/:section/:lot/:length/:width/:price/:color/:container', component:CreateProductComponent, canActivate:[RouteGuardService]},
-    
   }
-  
+  delete(temp_product:Product){
+    console.log("delete");
+  this.productService.delete(temp_product.product_id).
+  subscribe(()=>{}
+
+  );
+  window.location.reload();
+}
+
 }
