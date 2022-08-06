@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../models/user';
 import {UserService} from '../../services/user.service';
+import {SharedService} from '../../services/shared.service';
 import { Validators,FormGroup, FormBuilder } from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,7 @@ export class LoginComponent implements OnInit {
   
  
   });
-  constructor(private fb:FormBuilder, private userService:UserService) { }
+  constructor(private fb:FormBuilder, private router:Router,private userService:UserService, private _sharedService: SharedService) { }
 
   ngOnInit(): void {
   }
@@ -50,7 +52,10 @@ save(){
 
         if(this.user.username == values.username && this.user.password == values.password){
           console.log("Login successful");
-          this.message = "";
+          this._sharedService.emitChange(this.user.username);
+          sessionStorage.setItem('authenticatedUser',""+this.user.username);
+          this.router.navigate(['home']);
+          
          }else{
           this.message = "Wrong credentials";
           this.submitted = false;

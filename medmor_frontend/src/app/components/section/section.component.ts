@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-section',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService:UserService) { }
 
   ngOnInit(): void {
+
+    console.log("is there any user logged? R/"+this.userService.isUserLoggedIn());
   }
 
 }

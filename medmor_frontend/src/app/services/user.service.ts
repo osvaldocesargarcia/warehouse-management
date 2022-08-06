@@ -31,6 +31,22 @@ export class UserService {
     
     }
 
-  
+  isUserLoggedIn(){
+    let user = sessionStorage.getItem('authenticatedUser');
+    
+    return !(user===null);
+  }
+
+  getUserLogged(){
+    if(this.isUserLoggedIn()){
+      let user = sessionStorage.getItem('authenticatedUser');
+      return user;
+    }
+    return "";
+  }
+
+  logout(){
+    sessionStorage.removeItem('authenticatedUser');
+  }
 
 }

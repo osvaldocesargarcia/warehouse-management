@@ -23,12 +23,28 @@
           <li class="nav-item">
                 <a class="nav-link " [routerLink] ="['/']">System</a>
               </li>
+          
+            
      
         </ul>
       
-        <a class="nav-link" [routerLink] ="['/register']" aria-current="page" >Register</a>
-        <a class="nav-link" [routerLink] ="['/login']" aria-current="page" >Login</a>
         
+
+        
+        
+        <div *ngIf="( username !== '') ; then isLogged else isNotLogged"> </div>
+
+        <ng-template #isLogged>
+           
+          <a class="nav-link" [routerLink] ="['#']" aria-current="page" >{{username}}</a>
+          <a class="nav-link" href="#"   (click)="logout()" aria-current="page" >Logout</a>
+        </ng-template>
+
+        <ng-template #isNotLogged>
+          <a class="nav-link" [routerLink] ="['/login']" aria-current="page" >Login</a>
+          <a class="nav-link" [routerLink] ="['/register']" aria-current="page" >Register</a>
+        </ng-template>
+
       </div>
     </div>
   </nav>

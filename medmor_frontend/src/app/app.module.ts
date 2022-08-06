@@ -17,6 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateProductComponent } from './components/product/create-product/create-product.component';
 import {Product_Type} from './pipes/product_type.pipe';
 import {Container_Type} from './pipes/container_type.pipe.1';
+import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
