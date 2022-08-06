@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators,FormGroup, FormBuilder } from '@angular/forms';
 import {UserService} from '../../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,7 @@ export class RegisterComponent implements OnInit {
   
  
   });
-  constructor(private fb:FormBuilder, private userService:UserService) { }
+  constructor(private fb:FormBuilder,private router:Router, private userService:UserService) { }
 
   ngOnInit(): void {
   }
@@ -33,7 +34,7 @@ export class RegisterComponent implements OnInit {
 save(){
   this.submitted = true;
   var values = this.formvalue.value;
-  
+
   if(values.is_admin == null){
     values.is_admin = false;
  }
@@ -43,6 +44,7 @@ save(){
     this.userService.create(values) .
     subscribe( () => { 
      });
+     this.router.navigate(['login']);
     this.message = "";
   }else{
     this.message = "Passwords not matching";

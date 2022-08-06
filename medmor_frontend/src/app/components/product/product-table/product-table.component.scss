@@ -28,7 +28,23 @@ td{
 }
 
 .bg-gradient-info{
-    
+   
         float: right;
         //margin-right: 90px;
+}
+
+.bg-gradient-warning{
+        
+        float: left;
+        //margin-right: 90px;
+}
+.to-pad{
+    padding-top: 20px;
+}
+option{
+    font-size: 18px;
+}
+
+label{
+    font-size: 20px;
 }

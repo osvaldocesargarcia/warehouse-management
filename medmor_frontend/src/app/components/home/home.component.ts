@@ -7,6 +7,7 @@ import { faAppStore } from '@fortawesome/free-brands-svg-icons';
 import {ProductService} from '../../services/product.service';
 
 import {SectionService} from '../../services/section.service';
+import {UserService} from '../../services/user.service';
 
 
 
@@ -28,21 +29,28 @@ export class HomeComponent implements OnInit {
 
   countProducts:number;
   countSections:number;
+  countUsers:number;
 
-  constructor(private productService:ProductService , private sectionService:SectionService ) { }
+  constructor(private productService:ProductService , private sectionService:SectionService,private userService:UserService ) { }
 
   ngOnInit(): void {
     this.productService.getAll().
     subscribe( (promise:any)=>{
       this.countProducts = promise.length;
       
-  })
+  });
 
   this.sectionService.getAll().
   subscribe( (promise:any)=>{
     this.countSections = promise.length;
     
-})
+});
+
+this.userService.getAll().
+subscribe( (promise:any)=>{
+  this.countUsers = promise.length;
+  
+});
 
   }
 

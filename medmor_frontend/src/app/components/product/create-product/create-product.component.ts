@@ -3,6 +3,7 @@ import {SectionService} from '../../../services/section.service';
 import {ProductService} from '../../../services/product.service';
 import {Section} from '../../../models/section';
 import { Validators,FormGroup, FormBuilder } from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-product',
@@ -24,7 +25,7 @@ export class CreateProductComponent implements OnInit {
   
  
   });
-  constructor(private fb:FormBuilder,   private sectionService:SectionService, private productService:ProductService) { }
+  constructor(private fb:FormBuilder, private router:Router,  private sectionService:SectionService, private productService:ProductService) { }
 
   section_list:Section[];
   section_temp:Section;
@@ -38,7 +39,7 @@ export class CreateProductComponent implements OnInit {
     subscribe( (promise:any)=>{
       this.section_list = promise;
       
-  })
+  });
   }
 
   get createFormControl() {
@@ -67,7 +68,7 @@ export class CreateProductComponent implements OnInit {
           }   
           );
         }
-      
+        this.router.navigate(['product']);
       }
 
 
