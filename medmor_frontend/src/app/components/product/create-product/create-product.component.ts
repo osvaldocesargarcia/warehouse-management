@@ -47,39 +47,28 @@ export class CreateProductComponent implements OnInit {
  
 
   save(){
-      this.submitted = true;
-      
-      
+      this.submitted = true;     
       var values = this.formvalue.value;
-      
 
       if(values.is_fragile == null){
-        
-        values.is_fragile = false;
-       
+         values.is_fragile = false;
       }
 
       if(values.section_id == null ){
         this.section_message = "Please select a section";
-       
-
       }else{
         
-        this.section_message = "";
-     
+        if(this.formvalue.valid){
+          console.log("form valid");
+          this.section_message = "";
+          this.productService.create(values, values.section_id)
+          .subscribe( () => {
+           
+          }   
+          );
+        }
       
-        
-
-        this.productService.create(values, values.section_id)
-        .subscribe( () => {
-         
-        }   
-        );
       }
-
-    
-      //console.log("values",values);
-      /**/
 
 
     }
