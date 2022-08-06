@@ -2,12 +2,19 @@ package com.develop.wms.service.impl;
 
 import java.util.List;
 
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import com.develop.wms.entity.Product;
+import com.develop.wms.entity.Section;
 import com.develop.wms.entity.User;
 
 import com.develop.wms.repository.UserRepository;
 import com.develop.wms.service.UserService;
+import com.develop.wms.specification.ProductSpecification;
+import com.develop.wms.specification.SearchCriteria;
+import com.develop.wms.specification.SectionSpecification;
+import com.develop.wms.specification.UserSpecification;
 
 @Service
 public class UserServiceImpl  implements UserService{
@@ -20,6 +27,22 @@ public class UserServiceImpl  implements UserService{
 	}
 
 	
+	@Override
+	public User login(User user) {
+		User temp_user = new User();
+		
+		UserSpecification spec1 = new UserSpecification(new SearchCriteria("username", ":", user.getUsername()));
+		UserSpecification spec2 = new UserSpecification(new SearchCriteria("password", ":", user.getPassword()));
+	    
+	    List<User> results = userRepository.findAll(Specification.where(spec1).and(spec2));
+    
+	    if(!results.isEmpty()) {
+	    	temp_user = results.get(0);
+	    }
+	    
+	    return temp_user;
+	}
+
 	
 	@Override
 	public List<User> getAllUsers() {

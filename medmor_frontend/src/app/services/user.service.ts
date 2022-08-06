@@ -24,5 +24,13 @@ export class UserService {
     return this.http.post('http://localhost:8080/api/medmor/user',user);
   
   }
+   
+  login(user:User){
+    
+      return this.http.post('http://localhost:8080/api/medmor/login',user);
+    
+    }
+
+  
 
 }

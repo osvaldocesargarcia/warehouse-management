@@ -12,5 +12,7 @@ public interface UserService {
 	public User saveUser(User user);
 	
 	public User getUserById(int id);
+	
+	public User login(User user);
 
 }
