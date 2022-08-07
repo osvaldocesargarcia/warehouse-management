@@ -14,8 +14,8 @@
     <li>
       <a href="#backend-solution">Backend Solution</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#solution-for-spring-boot-api-and-spring-jpa">Solution for Spring Boot API and Spring JPA</a></li>
+        
       </ul>
     </li>
    
