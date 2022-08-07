@@ -180,7 +180,73 @@ public class User {
 		
 	return results;
 	}
-    ```
+  ```
+    
+   #### Spring Boot API Solution
+   
+   1.1- Add a given quantity of a product to a section.
+   
+   ##### Answer
+   To know if a product fits in a section, it is necessary to interact with both classes, so the service corresponding to the products must also interact with the section repository. So it would look like this in its constructor:
+   
+   ##### Class ProductServiceImpl
+   ```
+   	public ProductServiceImpl (ProductRepository productRepository, SectionRepository sectionRepository ) {
+		
+		this.productRepository = productRepository;
+		this.sectionRepository = sectionRepository;
+	}
+   ```
+   It was chosen to implement this functionality in the Products service because a product depends on a section and not vice versa, so that the modifications made in the product service would not affect the section service.
+   
+   So the main idea of the next two functions presented is to check at the beginning the capacity of the section, so we must find that element in the database. Then we use the list of products of that section to find out the capacity available and only if the new product's size fits it will be stored in the dabase.
+   
+   ##### Class ProductServiceImpl
+   ```
+   	@Override
+	public Product saveProduct(Product product, int section_id) {
+		
+		SectionSpecification spec = new SectionSpecification(new SearchCriteria("section_id", ":", section_id));
+	    List<Section> results = sectionRepository.findAll(spec);
+		
+	    product.setSection_assigned(results.get(0));
+	    
+		boolean no_availableCapacity = no_availableCapacity(product);
+		
+		if(no_availableCapacity) {
+			
+			System.out.println("No capacity left for any other product");
+			return new Product();
+		}
+		else {
+			return productRepository.save(product);
+		}
+	
+	}
+
+		public boolean no_availableCapacity(Product product) {
+		
+		boolean no_available = false;
+		int section_id = product.getSection_assigned().getSection_id();
+		
+		ArrayList<Product> product_list = (ArrayList<Product>) getAllProductsBySection(section_id);
+	
+		double  max_capacity = product.getSection_assigned().getLength()*product.getSection_assigned().getWidth();
+		double  occupied_capacity = product.getLength()*product.getWidth();
+		
+		for(int i = 0; i < product_list.size() && !no_available;i++) {
+			occupied_capacity += product_list.get(i).getLength()*product_list.get(i).getWidth();
+			
+			if(occupied_capacity > max_capacity) {
+				
+				no_available = true;
+			}
+		}
+		return no_available;	
+	}
+   ```
+    
+    
   
 
 
