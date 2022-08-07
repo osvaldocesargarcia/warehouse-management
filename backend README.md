@@ -267,7 +267,13 @@ public class User {
 		return sectionRepository.save(section);	
 	}
     ```
+    
+    1.3- List product information, and perform filtering operation by: section, lot, fragility, color, price range, 
+and type of packaging. 
   
+  ##### Answer
+  
+  The filtering requirements were solved with the Specifications as shown in its example.
 
 
 
