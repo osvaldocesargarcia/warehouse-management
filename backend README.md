@@ -164,6 +164,24 @@ public class User {
 	}
  ```
   
+  
+  #### Specifications
+  To avoid the use of native queries I used Specifications instead. Below I attach a fragment of code where I use Specifications to find a product in a price range.
+  
+  ##### Class ProductServiceImpl
+   ```
+   	@Override
+	public List<Product> getAllProductsByPriceInterval(double min, double max) {
+	
+	ProductSpecification spec1 = new ProductSpecification(new SearchCriteria("price", ">", min));
+	ProductSpecification spec2 = new ProductSpecification(new SearchCriteria("price", "<", max));
+	    
+	List<Product> results = productRepository.findAll(Specification.where(spec1).and(spec2));
+		
+	return results;
+	}
+    ```
+  
 
 
 
