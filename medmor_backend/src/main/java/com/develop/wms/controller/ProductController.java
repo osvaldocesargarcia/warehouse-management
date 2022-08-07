@@ -116,7 +116,7 @@ private ProductService productService;
 	@CrossOrigin
 	@DeleteMapping("/product/{id}")
 	public void deleteProduct(@PathVariable int id){
-
+		
 		productService.deleteProductById(id);
 		
 	}

@@ -18,6 +18,7 @@ import { CreateProductComponent } from './components/product/create-product/crea
 import {Product_Type} from './pipes/product_type.pipe';
 import {Container_Type} from './pipes/container_type.pipe.1';
 import { environment } from '../environments/environment';
+import { CreateSectionComponent } from './components/section/create-section/create-section.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { environment } from '../environments/environment';
     ProductTableComponent,
     CreateProductComponent,
     Product_Type,
-    Container_Type
+    Container_Type,
+    CreateSectionComponent
   ],
   imports: [
     BrowserModule,

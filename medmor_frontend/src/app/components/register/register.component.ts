@@ -47,7 +47,7 @@ save(){
      this.router.navigate(['login']);
     this.message = "";
   }else{
-    this.message = "Passwords not matching";
+    this.message = "Passwords do not match";
   }
 
    

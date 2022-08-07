@@ -28,4 +28,12 @@ export class SectionService {
      return this.http.post('http://localhost:8080/api/medmor/section',section);
    
    }
+
+   delete(id:number){
+     
+    return this.http.delete('http://localhost:8080/api/medmor/section/'+id);
+ 
+  }
+
+
 }

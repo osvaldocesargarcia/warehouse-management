@@ -69,7 +69,7 @@ public class SectionController {
 		
 	}
 	
-	
+	@CrossOrigin
 	@DeleteMapping("/section/{id}")
 	public void deleteSection(@PathVariable int id){
 

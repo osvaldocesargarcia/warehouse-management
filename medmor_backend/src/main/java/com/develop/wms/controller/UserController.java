@@ -42,6 +42,17 @@ public class UserController {
 		
 	}
 	
+	
+	@CrossOrigin
+	@GetMapping("/is_admin")
+	public boolean isAdmin(@RequestParam String username) {
+		
+		
+		return userService.getUserIsAdmin(username);
+		
+	}
+	
+	
 
 	@CrossOrigin
 	@PostMapping("/user")

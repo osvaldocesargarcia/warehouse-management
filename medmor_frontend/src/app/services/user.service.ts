@@ -37,6 +37,11 @@ export class UserService {
     return !(user===null);
   }
 
+  isAdmin(username:string){
+    return this.http.get("http://localhost:8080/api/medmor/is_admin?username="+username);
+                                
+ }
+
   getUserLogged(){
     if(this.isUserLoggedIn()){
       let user = sessionStorage.getItem('authenticatedUser');
@@ -48,5 +53,7 @@ export class UserService {
   logout(){
     sessionStorage.removeItem('authenticatedUser');
   }
+
+ 
 
 }

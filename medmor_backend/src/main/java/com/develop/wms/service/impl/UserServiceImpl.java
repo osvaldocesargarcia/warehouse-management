@@ -44,6 +44,7 @@ public class UserServiceImpl  implements UserService{
 	}
 
 	
+	
 	@Override
 	public List<User> getAllUsers() {
 		
@@ -54,6 +55,21 @@ public class UserServiceImpl  implements UserService{
 	public User saveUser(User user) {
 		
 		return this.userRepository.save(user);
+	}
+	
+	@Override
+	public boolean getUserIsAdmin(String username) {
+		boolean is_admin = false;
+		UserSpecification spec = new UserSpecification(new SearchCriteria("username", ":", username));
+		List<User> results = userRepository.findAll(spec);
+		
+		if(!results.isEmpty()) {
+			User temp_user = results.get(0);
+			if(temp_user.isIs_admin()) {
+				is_admin = true;
+			}
+	    }
+		return is_admin;
 	}
 
 	@Override

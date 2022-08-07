@@ -15,4 +15,6 @@ public interface UserService {
 	
 	public User login(User user);
 
+	public boolean getUserIsAdmin(String username);
+
 }

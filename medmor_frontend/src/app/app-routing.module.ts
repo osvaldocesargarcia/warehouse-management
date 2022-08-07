@@ -5,6 +5,7 @@ import {LoginComponent} from '../app/components/login/login.component';
 import {ProductComponent} from '../app/components/product/product.component';
 import {RegisterComponent} from '../app/components/register/register.component';
 import {SectionComponent} from '../app/components/section/section.component';
+import {CreateSectionComponent} from '../app/components/section/create-section/create-section.component';
 import { CreateProductComponent } from './components/product/create-product/create-product.component';
 import {RouteGuardService} from '../app/services/route-guard.service';
 import {NotLoggedRouteGuardService} from '../app/services/not-logged-route-guard.service';
@@ -20,6 +21,9 @@ const routes: Routes = [
   {path:'section', component:SectionComponent, canActivate:[RouteGuardService]},
   {path:'create_product', component:CreateProductComponent, canActivate:[RouteGuardService]},
   {path:'update_product/:id/:type/:section/:lot/:length/:width/:price/:color/:container', component:CreateProductComponent, canActivate:[RouteGuardService]},
+  {path:'create_section', component:CreateSectionComponent, canActivate:[RouteGuardService]},
+
+  
 ];
 
 @NgModule({
