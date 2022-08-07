@@ -245,8 +245,28 @@ public class User {
 		return no_available;	
 	}
    ```
+   
+     1.2- Create/edit/delete a new section in a warehouse. Only sections that do not contain products can be deleted. 
+   
+   ##### Answer
+    For the CRUDS functions I interacted with the REST Mapping of Spring Boot to satisfy the requests emitted from the frontend. The flow I followed to respond a request is shown in the next example related to a Create a Section function
     
+   ##### SectionController
+    ```
+	@CrossOrigin
+	@PostMapping("/section")
+	public Section saveSection(@RequestBody Section section) {
+		return	sectionService.saveSection(section);	
+	}
+    ```
     
+   ##### SectionServiceImpl
+    ```
+    @Override
+	public Section saveSection(Section section) {
+		return sectionRepository.save(section);	
+	}
+    ```
   
 
 
