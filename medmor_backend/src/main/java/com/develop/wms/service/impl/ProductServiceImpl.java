@@ -205,16 +205,11 @@ public class ProductServiceImpl implements ProductService {
 	
 	public boolean no_availableCapacity(Product product) {
 		
-		
 		boolean no_available = false;
-		
 		int section_id = product.getSection_assigned().getSection_id();
 		
-		
 		ArrayList<Product> product_list = (ArrayList<Product>) getAllProductsBySection(section_id);
-		
-		
-		
+	
 		double  max_capacity = product.getSection_assigned().getLength()*product.getSection_assigned().getWidth();
 		double  occupied_capacity = product.getLength()*product.getWidth();
 		
@@ -228,8 +223,7 @@ public class ProductServiceImpl implements ProductService {
 		}
 	
 		return no_available;
-		
-		
+			
 	}
 
 

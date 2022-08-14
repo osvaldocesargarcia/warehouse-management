@@ -19,9 +19,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name="section")
 public class Section {
-	
-	
-
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
